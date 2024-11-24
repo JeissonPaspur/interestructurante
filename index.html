@@ -63,102 +63,114 @@
 			</div>
 		</section>
 		 <section id="stress-test" class="container pt-2 pb-2 txt-center">
-			<h2 class="pb-3">Test de Estrés</h2>
-			<p>Responde las siguientes preguntas para identificar tu nivel de estrés:</p>
-			<form id="stressForm">
-				<div class="question">
-					<i class="fa fa-exclamation-circle"></i>
-					<label>1. ¿Te sientes abrumado por tus responsabilidades?</label><br>
-					<input type="radio" name="q1" value="1"> Sí
-					<input type="radio" name="q1" value="0"> No
-				</div>
-				<div class="question">
-					<i class="fa fa-bed"></i>
-					<label>2. ¿Tienes dificultad para dormir debido a tus pensamientos?</label><br>
-					<input type="radio" name="q2" value="1"> Sí
-					<input type="radio" name="q2" value="0"> No
-				</div>
-				<div class="question">
-					<i class="fa fa-coffee"></i>
-					<label>3. ¿Consumes más café o bebidas energéticas de lo habitual?</label><br>
-					<input type="radio" name="q3" value="1"> Sí
-					<input type="radio" name="q3" value="0"> No
-				</div>
-				<div class="question">
-					<i class="fa fa-clock-o"></i>
-					<label>4. ¿Te sientes siempre apurado o con falta de tiempo?</label><br>
-					<input type="radio" name="q4" value="1"> Sí
-					<input type="radio" name="q4" value="0"> No
-				</div>
-				<div class="question">
-					<i class="fa fa-smile-o"></i>
-					<label>5. ¿Has perdido el interés en actividades que solías disfrutar?</label><br>
-					<input type="radio" name="q5" value="1"> Sí
-					<input type="radio" name="q5" value="0"> No
-				</div>
-				<div class="question">
-					<i class="fa fa-heartbeat"></i>
-					<label>6. ¿Experimentas dolores de cabeza o tensión muscular?</label><br>
-					<input type="radio" name="q6" value="1"> Sí
-					<input type="radio" name="q6" value="0"> No
-				</div>
-				<div class="question">
-					<i class="fa fa-commenting-o"></i>
-					<label>7. ¿Te cuesta comunicarte con los demás o compartir tus sentimientos?</label><br>
-					<input type="radio" name="q7" value="1"> Sí
-					<input type="radio" name="q7" value="0"> No
-				</div>
-				<div class="question">
-					<i class="fa fa-money"></i>
-					<label>8. ¿Te preocupa tu situación financiera más de lo habitual?</label><br>
-					<input type="radio" name="q8" value="1"> Sí
-					<input type="radio" name="q8" value="0"> No
-				</div>
-				<div class="question">
-					<i class="fa fa-thumbs-o-up"></i>
-					<label>9. ¿Te sientes incapaz de manejar el estrés diario?</label><br>
-					<input type="radio" name="q9" value="1"> Sí
-					<input type="radio" name="q9" value="0"> No
-				</div>
-				<div class="question">
-					<i class="fa fa-comments-o"></i>
-					<label>10. ¿Te sientes ansioso o nervioso la mayor parte del tiempo?</label><br>
-					<input type="radio" name="q10" value="1"> Sí
-					<input type="radio" name="q10" value="0"> No
-				</div>
-				<button type="submit" class="btn">Enviar</button>
-			</form>
-			<div class="result" id="result"></div>
-		</section>
-	
-		<script>
-			document.getElementById('stressForm').addEventListener('submit', function(e) {
-				e.preventDefault();
-				let score = 0;
-				const questions = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10'];
-	
-				questions.forEach(q => {
-					const answer = document.querySelector(`input[name="${q}"]:checked`);
-					if (answer) {
-						score += parseInt(answer.value);
-					}
-				});
-	
-				let resultText = '';
-				if (score === 0) {
-					resultText = '¡Felicidades! Tu nivel de estrés es bajo. Sigue cuidando de tu salud mental.';
-				} else if (score <= 4) {
-					resultText = 'Tienes un nivel de estrés moderado. Considera implementar técnicas de relajación.';
-				} else if (score <= 7) {
-					resultText = 'Tu nivel de estrés es alto. Es importante buscar apoyo y cuidar de ti mismo.';
-				} else {
-					resultText = 'Tu nivel de estrés es muy alto. Te recomendamos buscar ayuda profesional.';
-				}
-	
-				document.getElementById('result').textContent = resultText;
-				document.getElementById('result').style.display = 'block';
-			});
-		</script>
+      <h2 class="pb-3">Test de Estrés</h2>
+      <p>Responde las siguientes preguntas para identificar tu nivel de estrés:</p>
+      <form id="stressForm">
+        <div class="question">
+          <i class="fa fa-exclamation-circle"></i>
+          <label for="q1">1. ¿Te sientes abrumado por tus responsabilidades?</label><br />
+          <input type="radio" name="q1" value="1" id="q1"> Sí
+          <input type="radio" name="q1" value="0" id="q1"> No
+        </div>
+        <div class="question">
+          <i class="fa fa-bed"></i>
+          <label for="q2">2. ¿Tienes dificultad para dormir debido a tus pensamientos?</label><br />
+          <input type="radio" name="q2" value="1" id="q2"> Sí
+          <input type="radio" name="q2" value="0" id="q2"> No
+        </div>
+        <div class="question">
+          <i class="fa fa-coffee"></i>
+          <label for="q3">3. ¿Consumes más café o bebidas energéticas de lo habitual?</label><br />
+          <input type="radio" name="q3" value="1" id="q3"> Sí
+          <input type="radio" name="q3" value="0" id="q3"> No
+        </div>
+        <div class="question">
+          <i class="fa fa-clock-o"></i>
+          <label for="q4">4. ¿Te sientes siempre apurado o con falta de tiempo?</label><br />
+          <input type="radio" name="q4" value="1" id="q4"> Sí
+          <input type="radio" name="q4" value="0" id="q4"> No
+        </div>
+        <div class="question">
+          <i class="fa fa-smile-o"></i>
+          <label for="q5">5. ¿Has perdido el interés en actividades que solías disfrutar?</label><br />
+          <input type="radio" name="q5" value="1" id="q5"> Sí
+          <input type="radio" name="q5" value="0" id="q5"> No
+        </div>
+        <div class="question">
+          <i class="fa fa-heartbeat"></i>
+          <label for="q6">6. ¿Experimentas dolores de cabeza o tensión muscular?</label><br />
+          <input type="radio" name="q6" value="1" id="q6"> Sí
+          <input type="radio" name="q6" value="0" id="q6"> No
+        </div>
+        <div class="question">
+          <i class="fa fa-commenting-o"></i>
+          <label for="q7">7. ¿Te cuesta comunicarte con los demás o compartir tus sentimientos?</label><br />
+          <input type="radio" name="q7" value="1" id="q7"> Sí
+          <input type="radio" name="q7" value="0" id="q7"> No
+        </div>
+        <div class="question">
+          <i class="fa fa-money"></i>
+          <label for="q8">8. ¿Te preocupa tu situación financiera más de lo habitual?</label><br />
+          <input type="radio" name="q8" value="1" id="q8"> Sí
+          <input type="radio" name="q8" value="0" id="q8"> No
+        </div>
+        <div class="question">
+          <i class="fa fa-thumbs-o-up"></i>
+          <label for="q9">9. ¿Te sientes incapaz de manejar el estrés diario?</label><br />
+          <input type="radio" name="q9" value="1" id="q9"> Sí
+          <input type="radio" name="q9" value="0" id="q9"> No
+        </div>
+        <div class="question">
+          <i class="fa fa-comments-o"></i>
+          <label for="q10">10. ¿Te sientes ansioso o nervioso la mayor parte del tiempo?</label><br />
+          <input type="radio" name="q10" value="1" id="q10"> Sí
+          <input type="radio" name="q10" value="0" id="q10"> No
+        </div>
+        <button type="submit" class="btn">Enviar</button>
+      </form>
+      <div class="result" id="result"></div>
+    </section>
+
+    <script>
+      // Evita que el formulario se envíe si hay alguna pregunta sin respuesta
+      document.getElementById('stressForm').addEventListener('submit', function(e) {
+        e.preventDefault();  // Evita el envío del formulario para validación
+
+        const questions = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10'];
+        let score = 0;
+        let valid = true;
+
+        // Validar si todas las preguntas tienen una respuesta seleccionada
+        questions.forEach(q => {
+          const answer = document.querySelector(`input[name="${q}"]:checked`);
+          if (!answer) {
+            valid = false;  // Si falta una respuesta, la variable valid se vuelve falsa
+            // Mostrar mensaje de advertencia con el texto de la pregunta correspondiente
+            alert(`Por favor, responde la pregunta: ${document.querySelector(`label[for="${q}"]`).textContent}`);
+          } else {
+            score += parseInt(answer.value);
+          }
+        });
+
+        // Si todas las respuestas fueron seleccionadas, calcular el resultado
+        if (valid) {
+          let resultText = '';
+          if (score === 0) {
+            resultText = '¡Felicidades! Tu nivel de estrés es bajo. Sigue cuidando de tu salud mental.';
+          } else if (score <= 4) {
+            resultText = 'Tienes un nivel de estrés moderado. Considera implementar técnicas de relajación.';
+          } else if (score <= 7) {
+            resultText = 'Tu nivel de estrés es alto. Es importante buscar apoyo y cuidar de ti mismo.';
+          } else {
+            resultText = 'Tu nivel de estrés es muy alto. Te recomendamos buscar ayuda profesional.';
+          }
+
+          // Mostrar el resultado del test
+          document.getElementById('result').textContent = resultText;
+          document.getElementById('result').style.display = 'block';
+        }
+      });
+    </script>
 	</body>
 	</html>
 
