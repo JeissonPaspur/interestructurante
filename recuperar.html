@@ -30,24 +30,48 @@
     </header>
 
     <section id="title" class="bk-orange pt-3 pb-3">
-        <h1 class="txt-white txt-center">Recuperar Contraseña</h1>
-    </section>
+		<h1 class="txt-white txt-center">Recuperar Contraseña</h1>
+	</section>
+	
+	<section id="form" class="pt-2 pb-2">
+		<div class="container">
+			<h2 class="pb-3 txt-center">Restablecer tu Contraseña</h2>
+			<form action="" method="post" class="w-60">
+				<div class="form-group">
+					<label for="recover-email">Correo Electrónico</label>
+					<input 
+						class="form-control" 
+						type="email" 
+						id="recover-email" 
+						name="recover-email" 
+						required 
+						maxlength="50" 
+						placeholder="Introduce tu correo electrónico"
+						pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" 
+						title="Por favor ingresa una dirección de correo electrónico válida."
+					/>
+					<small class="form-text text-muted">Máximo 50 caracteres</small>
+				</div>
+				<button class="btn btn-green" type="submit">Enviar Instrucciones</button>
+			</form>
+			<div class="txt-center pt-3">
+				<p>Recibirás un correo con las instrucciones para restablecer tu contraseña.</p>
+			</div>
+		</div>
+	</section>
 
-    <section id="form" class="pt-2 pb-2">
-        <div class="container">
-            <h2 class="pb-3 txt-center">Restablecer tu Contraseña</h2>
-            <form action="" method="post" class="w-60">
-                <div class="form-group">
-                    <label for="recover-email">Correo Electrónico</label>
-                    <input class="form-control" type="email" id="recover-email" name="recover-email" required />
-                </div>
-                <button class="btn btn-green" type="submit">Enviar Instrucciones</button>
-            </form>
-            <div class="txt-center pt-3">
-                <p>Recibirás un correo con las instrucciones para restablecer tu contraseña.</p>
-            </div>
-        </div>
-    </section>
+	<script>
+		// Función de validación para asegurar que la longitud del correo no sea mayor a 50 caracteres
+		document.getElementById("recover-form").addEventListener("submit", function(event) {
+			var emailInput = document.getElementById("recover-email");
+			var emailValue = emailInput.value;
+	
+			if (emailValue.length > 50) {
+				alert("El correo electrónico no puede tener más de 50 caracteres.");
+				event.preventDefault(); // Evita el envío del formulario si la longitud es mayor a 50
+			}
+		});
+	</script>
 
     <footer id="mainfooter" class="bk-orange-light txt-white">
 		<div class="container">
