@@ -27,30 +27,112 @@
 		</nav>
 	</header>
 
-	<section id="title" class="bk-orange pt-3 pb-3">
-		<h1 class="txt-white txt-center">Testimonios</h1>
-	</section>
-
 	<section id="testimonios" class="pt-2 pb-2">
-		<div class="container">
-			<h2 class="txt-center">Lo que dicen nuestros clientes</h2>
-			<div class="testimonio">
-				<p><strong>María G.</strong>: "La consulta me ayudó a entender mejor mis hábitos alimenticios. ¡He perdido 5 kg en un mes!"</p>
-			</div>
-			<div class="testimonio">
-				<p><strong>Juan P.</strong>: "Los consejos sobre ejercicio y dieta han transformado mi vida. ¡Me siento más saludable y enérgico!"</p>
-			</div>
-			<div class="testimonio">
-				<p><strong>Ana L.</strong>: "Nunca había pensado en la importancia de la alimentación en mi bienestar. Estoy muy agradecida por el apoyo recibido."</p>
-			</div>
-			<div class="testimonio">
-				<p><strong>Pedro S.</strong>: "Gracias a las técnicas de relajación aprendidas, he podido manejar mejor el estrés. ¡Altamente recomendado!"</p>
-			</div>
-			<div class="testimonio">
-				<p><strong>Lucía R.</strong>: "El seguimiento personalizado ha sido clave para mis resultados. ¡Definitivamente seguiré con el programa!"</p>
-			</div>
-		</div>
-	</section>
+    <div class="container">
+        <h2 class="txt-center">Lo que dicen nuestros clientes</h2>
+
+        <!-- Formulario de Testimonios -->
+        <form id="testimonio-form" action="" method="post" class="w-60">
+            <!-- Campo Nombre -->
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input 
+                    class="form-control" 
+                    type="text" 
+                    id="nombre" 
+                    name="nombre" 
+                    required 
+                    maxlength="50"
+                    placeholder="Introduce tu nombre"
+                    pattern="^[A-Za-z\s]+$" 
+                    title="El nombre solo debe contener letras y espacios (sin números ni caracteres especiales)."
+                />
+                <small class="form-text text-muted">Máximo 50 caracteres</small>
+            </div>
+
+            <!-- Campo Testimonio -->
+            <div class="form-group">
+                <label for="testimonio">Testimonio</label>
+                <textarea 
+                    class="form-control" 
+                    id="testimonio" 
+                    name="testimonio" 
+                    required 
+                    minlength="100" 
+                    placeholder="Escribe tu testimonio"
+                ></textarea>
+                <small class="form-text text-muted">El testimonio debe tener al menos 100 caracteres.</small>
+            </div>
+
+            <!-- Campo Correo Electrónico (Opcional) -->
+            <div class="form-group">
+                <label for="correo">Correo Electrónico (Opcional)</label>
+                <input 
+                    class="form-control" 
+                    type="email" 
+                    id="correo" 
+                    name="correo" 
+                    maxlength="20"
+                    placeholder="Introduce tu correo electrónico (opcional)"
+                    pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" 
+                    title="Por favor, ingresa un correo electrónico válido."
+                />
+                <small class="form-text text-muted">Máximo 20 caracteres (opcional)</small>
+            </div>
+
+            <button class="btn btn-green" type="submit">Enviar Testimonio</button>
+        </form>
+
+        <!-- Testimonios de ejemplo -->
+        <div class="testimonio">
+            <p><strong>María G.</strong>: "La consulta me ayudó a entender mejor mis hábitos alimenticios. ¡He perdido 5 kg en un mes!"</p>
+        </div>
+        <div class="testimonio">
+            <p><strong>Juan P.</strong>: "Los consejos sobre ejercicio y dieta han transformado mi vida. ¡Me siento más saludable y enérgico!"</p>
+        </div>
+        <div class="testimonio">
+            <p><strong>Ana L.</strong>: "Nunca había pensado en la importancia de la alimentación en mi bienestar. Estoy muy agradecida por el apoyo recibido."</p>
+        </div>
+        <div class="testimonio">
+            <p><strong>Pedro S.</strong>: "Gracias a las técnicas de relajación aprendidas, he podido manejar mejor el estrés. ¡Altamente recomendado!"</p>
+        </div>
+        <div class="testimonio">
+            <p><strong>Lucía R.</strong>: "El seguimiento personalizado ha sido clave para mis resultados. ¡Definitivamente seguiré con el programa!"</p>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Validación personalizada con JavaScript para el formulario
+    document.getElementById("testimonio-form").addEventListener("submit", function(event) {
+        var nombreInput = document.getElementById("nombre");
+        var testimonioInput = document.getElementById("testimonio");
+        var correoInput = document.getElementById("correo");
+
+        var nombreValue = nombreInput.value;
+        var testimonioValue = testimonioInput.value;
+        var correoValue = correoInput.value;
+
+        // Validación para el nombre: solo letras y espacios
+        var nombrePattern = /^[A-Za-z\s]+$/;
+        if (!nombrePattern.test(nombreValue)) {
+            alert("El nombre solo puede contener letras y espacios (sin números ni caracteres especiales).");
+            event.preventDefault(); // Evita el envío del formulario si el nombre es inválido
+        }
+
+        // Validación para el testimonio: al menos 100 caracteres
+        if (testimonioValue.length < 100) {
+            alert("El testimonio debe tener al menos 100 caracteres.");
+            event.preventDefault(); // Evita el envío del formulario si el testimonio tiene menos de 100 caracteres
+        }
+
+        // Validación para el correo electrónico: si se proporciona, debe ser válido y tener máximo 20 caracteres
+        if (correoValue && correoValue.length > 20) {
+            alert("El correo electrónico no puede tener más de 20 caracteres.");
+            event.preventDefault(); // Evita el envío del formulario si el correo tiene más de 20 caracteres
+        }
+    });
+</script>
 
 	<footer id="mainfooter" class="bk-orange-light txt-white">
 		<div class="container">
